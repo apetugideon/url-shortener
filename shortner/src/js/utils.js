@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-const base_url = 'http://localhost:8081';
+const base_url = 'http://localhost:8080';
 
 
 export function postData(data, dUrl) {
