@@ -1,0 +1,4 @@
+NOTES: 
+    1. This Application uses sqlite for data storage, its needed to work fine.
+    2. The frontend is React and the backend is Nodejs
+    3. I delibrately leave out authentication/authorization

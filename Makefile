@@ -1,18 +1,38 @@
-.PHONY: $(MAKECMDGOALS)
+#!make
+MAKEFLAGS += --silent
 
-# `make setup` will be used after cloning or downloading to fulfill
-# dependencies, and setup the the project in an initial state.
-# This is where you might download rubygems, node_modules, packages,
-# compile code, build container images, initialize a database,
-# anything else that needs to happen before your server is started
-# for the first time
+#Installations
 setup:
+	cd shortner; eho "setting up frontend"; \
+	npm install
+	cd backend; echo "setting up backend"; \
+	npm install
 
-# `make server` will be used after `make setup` in order to start
-# an http server process that listens on any unreserved port
-#	of your choice (e.g. 8080). 
 server:
+	cd backend; echo "Starting the backend server"; \
+	npm start
 
-# `make test` will be used after `make setup` in order to run
-# your test suite.
+frontend:
+	cd shortner; eho "Starting the frontend server"; \
+	npm start
+	
 test:
+	cd backend; echo "Testing the backend"; \
+	npm test
+	cd shortner; echo "Testing the frontend"; \
+	npm test
+
+frontend_test:
+	cd shortner; echo "Testing the frontend"; \
+	npm test
+
+backend_test:
+	cd backend; echo "Testing the frontend"; \
+	npm test
+
+.PHONY: setup
+.PHONY: server
+.PHONY: frontend
+.PHONY: test
+.PHONY: frontend_test
+.PHONY: backend_test
